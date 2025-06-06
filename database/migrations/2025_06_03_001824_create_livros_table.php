@@ -17,10 +17,10 @@ return new class extends Migration
             $table->text('sinopse')->nullable(); // sinopse do livro, pode ser nula
 
             $table->unsignedBigInteger('genero_id'); // chave estrangeira para o gênero do livro
-            $table->foreign('genero_id')->references('id')->on('generos')->onDelete('cascade'); // referência à tabela generos
+            $table->foreign('genero_id')->references('id')->on('generos')->nullOnDelete(); // referência à tabela generos
             
             $table->unsignedBigInteger('autor_id'); // chave estrangeira para o autor do livro
-            $table->foreign('autor_id')->references('id')->on('autores')->onDelete('cascade'); // referência à tabela autores
+            $table->foreign('autor_id')->references('id')->on('autores')->nullOnDelete(); // referência à tabela autores
             
             $table->timestamps();
         });
